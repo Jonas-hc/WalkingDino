@@ -25,22 +25,39 @@ space.gravity = 0, -1000
 circle_moment          = pymunk.moment_for_circle(mass, 0, radius)
 circle_body            = pymunk.Body(mass, circle_moment)
 
-circle_body.position   = 400, 400
+circle_body.position   = 400, 160
 circle_shape           = pymunk.Circle(circle_body, radius)
 circle_shape.elasticity = 0.1
 #circle_shape.friction   = 10.0
-circle_shape.color = pygame.color.THECOLORS["white"]
+circle_shape.color = pygame.color.THECOLORS["lightskyblue"]
 
-segment_shape          = pymunk.Segment(space.static_body, (0, 0),(800, 0), 50)
+segment_shape          = pymunk.Segment(space.static_body, (0, 0),(800, 0), 40)
 segment_shape.body.position  = 100, 100
 segment_shape.elasticity = 0.0
 segment_shape.friction = 1.0
+segment_shape.color = pygame.color.THECOLORS["saddlebrown"]
 space.add(segment_shape)
 
-segment_shape          = pymunk.Segment(space.static_body, (0, 0),(800, 0), 50)
+segment_shape          = pymunk.Segment(space.static_body, (0, 0),(800, 0), 10)
+segment_shape.body.position  = 100, 140
+segment_shape.elasticity = 0.0
+segment_shape.friction = 1.0
+segment_shape.color = pygame.color.THECOLORS["forestgreen"]
+space.add(segment_shape)
+
+segment_shape          = pymunk.Segment(space.static_body, (0, 0),(800, 0), 40)
 segment_shape.body.position  = 600, 150
 segment_shape.elasticity = 0.0
 segment_shape.friction = 1.0
+segment_shape.color = pygame.color.THECOLORS["saddlebrown"]
+space.add(segment_shape)
+
+
+segment_shape          = pymunk.Segment(space.static_body, (0, 0),(800, 0), 10)
+segment_shape.body.position  = 600, 190
+segment_shape.elasticity = 0.0
+segment_shape.friction = 1.0
+segment_shape.color = pygame.color.THECOLORS["forestgreen"]
 space.add(segment_shape)
 
 
@@ -134,7 +151,7 @@ def main():
     pygame.font.init()  # you have to call this at the start,
     # if you want to use this module.
     myfont = pygame.font.SysFont('Comic Sans MS', 80)
-    textsurface = myfont.render('Dino Walk', 1, (50,205,50))
+    textsurface = myfont.render('Dino Walk', 1, (0,128,0))
     screen.blit(textsurface, (50, 50))
     stepCount = 0
     count = 0
@@ -202,7 +219,7 @@ def main():
         dino.rect.center = flipy(circle_body.position)
 
         pygame.display.flip()
-        screen.fill(THECOLORS["white"])
+        screen.fill(THECOLORS["lightskyblue"])
         all_sprite_list.update()
 
         space.debug_draw(draw_options)
